@@ -37,7 +37,7 @@ router.post('/register', (req, res) => {
       name,
       email,
       password,
-      password2
+      password2,
     });
   } else {
     // Validation passes
@@ -50,13 +50,13 @@ router.post('/register', (req, res) => {
           name,
           email,
           password,
-          password2
+          password2,
         });
       } else {
         const newUser = new User({
           name,
           email,
-          password
+          password,
         });
 
         // Hash password
@@ -93,7 +93,7 @@ router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
     successRedirect: '/dashboard',
     failureRedirect: '/users/login',
-    failureFlash: true
+    failureFlash: true,
   })(req, res, next);
 });
 

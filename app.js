@@ -30,7 +30,7 @@ app.use(
   session({
     secret: 'secret',
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
   })
 );
 
@@ -57,10 +57,10 @@ app.set('views', './views');
 app.use('/', require('./routes/index'));
 app.use('/users', require('./routes/users'));
 
-// // 404
-// app.use('/', (req, res, next) => {
-//   res.status(404).send('Not Found');
-// });
+// 404
+app.use('/', (req, res, next) => {
+  res.status(404).send('Not Found');
+});
 
 // Port config and listener
 const port = process.env.PORT | 5000;
